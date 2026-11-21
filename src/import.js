@@ -37,7 +37,8 @@ const imported = new Set(
 let count = 0;
 for (const page of await queryAll(sourceDb)) {
   if (imported.has(page.url)) continue;
-  const name = title(page);
+  const name = title(page).trim();
+  if (!name) continue;
   const label = page.properties[sourceProp]?.select?.name;
   await notion("POST", "/pages", {
     parent: { database_id: notesDb },
