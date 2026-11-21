@@ -1,0 +1,17 @@
+{
+  "name": "student-os-review-scheduler",
+  "version": "1.0.0",
+  "description": "Spaced-repetition review tasks and a weekly due-date digest for Notion Student OS",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20.6"
+  },
+  "scripts": {
+    "setup": "node --env-file=.env src/setup.js",
+    "schedule": "node --env-file=.env src/schedule.js",
+    "digest": "node --env-file=.env src/digest.js",
+    "start": "npm run schedule && npm run digest"
+  },
+  "license": "MIT"
+}
