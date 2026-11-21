@@ -4,6 +4,8 @@ Turns the lecture notes you already keep in Notion into a spaced-repetition revi
 
 > **Runs on my real notes.** It reads the 37 lecture notes from my own 5th-semester "Mid Subjects" database (SE216 OOP, SE214 Algorithms, SE411 Project Management, STA101 Statistics). There's no fake data, and my original database is never modified.
 
+**🔗 Live Notion page (public):** [My OS](https://www.notion.so/My-OS-41f4dd44fa4a81edaf0ee83943ff34d5): the dashboard, the review tasks, my notes and the auto-generated "📅 Due this week" page.
+
 ## The problem
 
 Students take lecture notes and then never look at them again until the night before the exam. Deadlines are spread across courses, so it's easy to miss a quiz while studying for another subject.
