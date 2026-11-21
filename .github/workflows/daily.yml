@@ -1,0 +1,29 @@
+name: Daily review scheduler
+
+on:
+  schedule:
+    - cron: "0 1 * * *" # 07:00 Asia/Dhaka
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      NOTION_PARENT_PAGE_ID: ${{ secrets.NOTION_PARENT_PAGE_ID }}
+      NOTION_COURSES_DB: ${{ secrets.NOTION_COURSES_DB }}
+      NOTION_ASSIGNMENTS_DB: ${{ secrets.NOTION_ASSIGNMENTS_DB }}
+      NOTION_NOTES_DB: ${{ secrets.NOTION_NOTES_DB }}
+      NOTION_TASKS_DB: ${{ secrets.NOTION_TASKS_DB }}
+      NOTION_SOURCE_DB: ${{ secrets.NOTION_SOURCE_DB }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: touch .env
+      - name: Import new notes
+        if: env.NOTION_SOURCE_DB != ''
+        run: npm run import
+      - name: Schedule reviews and rebuild digest
+        run: npm start

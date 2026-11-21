@@ -108,4 +108,7 @@ const digest = await notion("POST", "/pages", {
   properties: { title: { title: text(DIGEST_TITLE) } },
   children: blocks.slice(0, 100),
 });
+for (let i = 100; i < blocks.length; i += 100) {
+  await notion("PATCH", `/blocks/${digest.id}/children`, { children: blocks.slice(i, i + 100) });
+}
 console.log(`${upcoming.length} upcoming, ${overdue.length} overdue -> ${digest.url}`);

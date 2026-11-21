@@ -10,6 +10,7 @@ Students take lecture notes and then never look at them again until the night be
 
 - **Review scheduler** (`npm run schedule`): for every new lecture note in the **Notes** database, it creates three review tasks in **Tasks** at +1, +3 and +7 days (configurable). Each task is linked to the same **Course** and back to the source note. The note is then marked `Scheduled` so it's never processed twice.
 - **Weekly digest** (`npm run digest`): builds a `📅 Due this week` page that pulls assignments and review tasks due in the next 7 days. Items are grouped by day, overdue items are flagged in red and upcoming exams get a callout. The page is regenerated on each run.
+- **Bring your own notes** (`npm run import`): copies lectures from an existing Notion notes database (mine is "Mid Subjects") into **Notes**, mapping its course tag (e.g. `SE216-OOP`) to a **Course** and linking back to the original page. The source database is only read, never changed, and re-running skips notes already imported.
 - **One-command setup** (`npm run setup`): creates the four Student OS databases (Courses, Assignments, Notes, Tasks) with relations and sample DIU courses, so you can demo immediately.
 
 ## How it uses Notion Student OS
@@ -48,8 +49,13 @@ Requires Node.js 20.6 or later. There are no dependencies to install.
 4. Run:
    ```bash
    npm run setup   # creates 4 databases + sample data, and saves their IDs to .env
+   npm run import  # optional: copy your own notes (set NOTION_SOURCE_DB and share it with the connection)
    npm start       # schedule reviews, then build the digest
    ```
+
+## Runs automatically every day
+
+`.github/workflows/daily.yml` runs `npm run import` and `npm start` every morning at 07:00 (Asia/Dhaka) on GitHub Actions. New notes get review tasks and the digest is refreshed without you running anything. To set it up on your fork, add the values from your `.env` as repository secrets (`gh secret set -f .env`). You can also trigger it by hand from the Actions tab ("Run workflow").
 
 ## Test / demo flow
 

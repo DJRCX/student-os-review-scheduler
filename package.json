@@ -9,6 +9,7 @@
   },
   "scripts": {
     "setup": "node --env-file=.env src/setup.js",
+    "import": "node --env-file=.env src/import.js",
     "schedule": "node --env-file=.env src/schedule.js",
     "digest": "node --env-file=.env src/digest.js",
     "start": "npm run schedule && npm run digest"
