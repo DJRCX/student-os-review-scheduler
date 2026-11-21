@@ -6,6 +6,8 @@ Turns the lecture notes you already keep in Notion into a spaced-repetition revi
 
 **🔗 Live Notion page (public):** [My OS](https://www.notion.so/My-OS-41f4dd44fa4a81edaf0ee83943ff34d5): the dashboard, the review tasks, my notes and the auto-generated "📅 Due this week" page.
 
+![The auto-generated "Due this week" page in Notion](docs/due-this-week.png)
+
 ## The problem
 
 Students take lecture notes and then never look at them again until the night before the exam. Deadlines are spread across courses, so it's easy to miss a quiz while studying for another subject.
@@ -38,6 +40,20 @@ Devin (via Devin Chat) did the following:
 2. Connected to my Notion workspace through the Notion MCP and found my existing "Mid Subjects" lecture database.
 3. Wrote all the code on my laptop through a local-machine connection: the API helper, setup, import, scheduler, digest and GitHub workflow.
 4. Ran it against my real workspace, imported my notes, set up the daily GitHub Actions run with encrypted secrets, and wrote this README.
+
+### Screenshots from the Devin Chat session
+
+**Planning the hackathon approach from the event email:**
+
+![Devin planning the approach](docs/devin-plan.png)
+
+**Switching from sample data to my own Mid Subjects notes:**
+
+![Devin checking my own notes database](docs/devin-own-notes.png)
+
+**Starting the session:**
+
+![Start of the Devin session](docs/devin-intro.png)
 
 ## Use it with your own notes
 
